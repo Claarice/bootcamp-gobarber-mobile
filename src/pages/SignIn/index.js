@@ -26,6 +26,8 @@ export default function SignIn({ navigation }) {
   const loading = useSelector(state => state.auth.loading);
 
   function handleSubmit() {
+    console.tron.log(email);
+    console.tron.log(password);
     dispatch(signInRequest(email, password));
   }
 
@@ -58,14 +60,14 @@ export default function SignIn({ navigation }) {
             onChangeText={setPassword}
           />
 
-          <SubmitButton loading={loading} onPress={() => { }}>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
             Acessar
           </SubmitButton>
-
-          <SignLink onPress={() => navigation.navigate('SignUp')}>
-            <SignLinkText>Criar conta gratuita</SignLinkText>
-          </SignLink>
         </Form>
+
+        <SignLink onPress={() => navigation.navigate('SignUp')}>
+          <SignLinkText>Criar conta gratuita</SignLinkText>
+        </SignLink>
       </Container>
     </Background>
   );
